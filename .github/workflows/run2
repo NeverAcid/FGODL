@@ -1,0 +1,36 @@
+name: FGO Login System
+
+on:
+  push:
+    branches: [13-simplify-process-to-add-secrets]
+  pull_request:
+    branches: [13-simplify-process-to-add-secrets]
+  schedule:
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+      - name: Gettings files from Repo
+        uses: actions/checkout@v2
+      
+      - name: Install Requeriments
+        run: pip install -r requirements.txt
+      
+      - name: Testing secrets are configured
+        run: python -m unittest tests/test-secrets.py
+        env:
+          certificate: ${{ secrets.GAME_CERT2 }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
+
+      - name: Execute main script
+        run: python3 main.py
+        env:
+          certificate: ${{ secrets.GAME_CERT2 }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}

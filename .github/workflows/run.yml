@@ -35,26 +35,26 @@ jobs:
           certificate: ${{ secrets.GAME_CERT }}
           webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
 
-      - name: Execute main script
+      - name: Execute main script 2
         run: python3 main.py
         env:
           certificate: ${{ secrets.GAME_CERT2 }}
           webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
           
-      - name: Execute main script
-              run: python3 main.py
-              env:
-                certificate: ${{ secrets.GAME_CERT3 }}
-                webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Execute main script 3
+        run: python3 main.py
+        env:
+          certificate: ${{ secrets.GAME_CERT3 }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
       
-      - name: Execute main script
-              run: python3 main.py
-              env:
-                certificate: ${{ secrets.GAME_CERT4 }}
-                webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}          
+      - name: Execute main script 4
+        run: python3 main.py
+        env:
+          certificate: ${{ secrets.GAME_CERT4 }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}          
 
-      - name: Execute main script
-              run: python3 main.py
-              env:
-                certificate: ${{ secrets.GAME_CERT5 }}
-                webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: Execute main script 5
+        run: python3 main.py
+        env:
+          certificate: ${{ secrets.GAME_CERT5 }}
+          webhookDiscord: ${{ secrets.DISCORD_WEBHOOK }}
